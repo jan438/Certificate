@@ -4,7 +4,7 @@ from reportlab.lib.colors import red, blue, yellow, green
  
 c = Canvas("PDF/Certificate.pdf", pagesize=letter)  
  
-c.linearGradient(0, 0, 400, 0, (red, yellow, green), (0, 0.8, 1))
+c.linearGradient(0, 0, 400, 0, (red, yellow, green), (0, 0.8, 1), extend = False)
  
 c.rect(  
     x=100, y=600,
