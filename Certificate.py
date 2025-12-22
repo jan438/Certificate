@@ -5,7 +5,7 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib.colors import red, blue, yellow, green, white, HexColor
 from reportlab.lib.units import mm, cm
 
-def drawRoundedRect(c, x, y, w, h, a, color1, color2, color3):    
+def drawRoundedRect(c, x, y, w, h, a, d, color1, color2, color3):    
     c.saveState()
     p = c.beginPath()
     p.moveTo(x, y + 0.5 * a)
@@ -19,7 +19,8 @@ def drawRoundedRect(c, x, y, w, h, a, color1, color2, color3):
     p.lineTo(x, y + 0.5 * a)                                                # vertcal line
     c.drawPath(p, stroke = 0, fill = 1)
     c.clipPath(p, stroke=0)
-    c.linearGradient(x, y, x + w + a, y + h + a, (color1, color2, color3), (0, 0.5, 1))
+    if d == 'd':
+         c.linearGradient(x, y, x + w + a, y + h + a, (color1, color2, color3), (0, 0.5, 1))
     c.restoreState()
 
 def drawRect(c, x, y, w, h, color):    
@@ -41,7 +42,7 @@ if sys.platform[0] == 'w':
     path = "C:/Users/janbo/OneDrive/Documents/GitHub/Certificate"
 os.chdir(path)
 c = Canvas("PDF/Certificate.pdf", pagesize=letter)
-drawRoundedRect(c, 11*cm,  12*cm, 50, 50, 20, "#da23ff", "#99ff99", "#9869ff")
+drawRoundedRect(c, 11*cm,  12*cm, 50, 50, 20, 'd', "#da23ff", "#99ff99", "#9869ff")
 drawRect(c, 11*cm,  6*cm, 50, 50, "#da23ff")
 c.save()  
 
