@@ -5,7 +5,7 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib.colors import red, blue, yellow, green, white, HexColor
 from reportlab.lib.units import mm, cm
 
-def drawRect(c, x, y, w, h, a, color):    
+def drawRoundedRect(c, x, y, w, h, a, color):    
     c.saveState()
     p = c.beginPath()
     p.moveTo(x, y + 0.5 * a)
@@ -19,7 +19,7 @@ def drawRect(c, x, y, w, h, a, color):
     p.lineTo(x, y + 0.5 * a)                                                # vertcal line
     c.drawPath(p, stroke = 0, fill = 1)
     c.clipPath(p, stroke=0)
-    c.linearGradient(10*cm, 10*cm, 20*cm, 20*cm , (red, white, yellow), (0, 0.3, 1))
+    c.linearGradient(x, y, x + w + a, y + h + a, (red, white, yellow), (0, 0.5, 1))
     c.restoreState()
     
 if sys.platform[0] == 'l':
@@ -28,17 +28,17 @@ if sys.platform[0] == 'w':
     path = "C:/Users/janbo/OneDrive/Documents/GitHub/Certificate"
 os.chdir(path)
 c = Canvas("PDF/Certificate.pdf", pagesize=letter)
-c.saveState()
-p = c.beginPath()
-p.rect(0, 0, 5*cm, 5*cm)
-c.clipPath(p, stroke=0)
-c.linearGradient(0, 0, 5*cm, 5*cm , (red, green, yellow), (0, 0.3, 1))
-c.restoreState()
-p = c.beginPath()
-p.rect(10*cm, 10*cm, 10*cm, 10*cm)
-c.clipPath(p, stroke=0)
-c.linearGradient(10*cm, 10*cm, 20*cm, 20*cm , (red, green, yellow), (0, 0.3, 1))
-drawRect(c, 11*cm,  12*cm, 50, 50, 20, "#da23ff")
+#c.saveState()
+#p = c.beginPath()
+#p.rect(0, 0, 5*cm, 5*cm)
+#c.clipPath(p, stroke=0)
+#c.linearGradient(0, 0, 5*cm, 5*cm , (red, green, yellow), (0, 0.3, 1))
+#c.restoreState()
+#p = c.beginPath()
+#p.rect(10*cm, 10*cm, 10*cm, 10*cm)
+#c.clipPath(p, stroke=0)
+#c.linearGradient(10*cm, 10*cm, 20*cm, 20*cm , (red, green, yellow), (0, 0.3, 1))
+drawRoundedRect(c, 11*cm,  12*cm, 50, 50, 20, "#da23ff")
 c.save()  
 
 key = input("Wait")
