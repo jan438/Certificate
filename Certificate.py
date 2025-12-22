@@ -2,7 +2,7 @@ import os
 import sys
 from reportlab.pdfgen.canvas import Canvas
 from reportlab.lib.pagesizes import letter
-from reportlab.lib.colors import red, blue, yellow, green, HexColor
+from reportlab.lib.colors import red, blue, yellow, green, white, HexColor
 from reportlab.lib.units import mm, cm
 
 def drawRect(c, x, y, w, h, a, color):    
@@ -18,6 +18,8 @@ def drawRect(c, x, y, w, h, a, color):
     p.arcTo(x, y + h, x + a, y + h + a, startAng = 90, extent = 90)         # arc left above
     p.lineTo(x, y + 0.5 * a)                                                # vertcal line
     c.drawPath(p, stroke = 0, fill = 1)
+    c.clipPath(p, stroke=0)
+    c.linearGradient(10*cm, 10*cm, 20*cm, 20*cm , (red, white, yellow), (0, 0.3, 1))
     
 if sys.platform[0] == 'l':
     path = '/home/jan/git/Certificate'
