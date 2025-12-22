@@ -6,7 +6,7 @@ from reportlab.lib.colors import red, blue, yellow, green, white, HexColor
 from reportlab.lib.units import mm, cm
 
 def drawRect(c, x, y, w, h, a, color):    
-    c.setFillColor(HexColor(color))
+    c.saveState()
     p = c.beginPath()
     p.moveTo(x, y + 0.5 * a)
     p.arcTo(x, y, x + a, y + a, startAng = 180, extent = 90)                # arc left below
@@ -20,6 +20,7 @@ def drawRect(c, x, y, w, h, a, color):
     c.drawPath(p, stroke = 0, fill = 1)
     c.clipPath(p, stroke=0)
     c.linearGradient(10*cm, 10*cm, 20*cm, 20*cm , (red, white, yellow), (0, 0.3, 1))
+    c.restoreState()
     
 if sys.platform[0] == 'l':
     path = '/home/jan/git/Certificate'
