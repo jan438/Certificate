@@ -7,7 +7,7 @@ c = Canvas("PDF/Certificate.pdf", pagesize=letter)
 p = c.beginPath()
 p.rect(0, 0, 5*cm, 5*cm)
 c.clipPath(p, stroke=0)
-c.linearGradient(0, 0, 5*cm, 5*cm , (red, yellow))
+c.linearGradient(0, 0, 5*cm, 5*cm , (red, green, yellow), (0, 0.3, 1))
 c.save()  
 
 key = input("Wait")
