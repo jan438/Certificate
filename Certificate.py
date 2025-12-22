@@ -21,7 +21,20 @@ def drawRoundedRect(c, x, y, w, h, a, color):
     c.clipPath(p, stroke=0)
     c.linearGradient(x, y, x + w + a, y + h + a, (red, white, yellow), (0, 0.5, 1))
     c.restoreState()
-    
+
+def drawRect(c, x, y, w, h, color):    
+    c.saveState()
+    p = c.beginPath()
+    p.moveTo(x, y)
+    p.lineTo(x + w, y)                                                      # horizontal line
+    p.lineTo(x + w, y + h)                                                  # vertcal line
+    p.lineTo(x, y + h)                                                      # horizontal line
+    p.lineTo(x, y)                                                          # vertcal line
+    c.drawPath(p, stroke = 0, fill = 1)
+    c.clipPath(p, stroke=0)
+    c.linearGradient(x, y, x + w, y + h, (red, white, yellow), (0, 0.5, 1))
+    c.restoreState()
+
 if sys.platform[0] == 'l':
     path = '/home/jan/git/Certificate'
 if sys.platform[0] == 'w':
@@ -39,6 +52,7 @@ c = Canvas("PDF/Certificate.pdf", pagesize=letter)
 #c.clipPath(p, stroke=0)
 #c.linearGradient(10*cm, 10*cm, 20*cm, 20*cm , (red, green, yellow), (0, 0.3, 1))
 drawRoundedRect(c, 11*cm,  12*cm, 50, 50, 20, "#da23ff")
+drawRect(c, 11*cm,  6*cm, 50, 50, "#da23ff")
 c.save()  
 
 key = input("Wait")
