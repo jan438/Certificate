@@ -2,7 +2,7 @@ import os
 import sys
 from reportlab.pdfgen.canvas import Canvas
 from reportlab.lib.pagesizes import letter
-from reportlab.lib.colors import red, blue, yellow, green, white, HexColor
+from reportlab.lib.colors import Color, red, blue, yellow, green, white, HexColor
 from reportlab.lib.units import mm, cm
 
 def drawRoundedRect(c, x, y, w, h, a, d, color1, color2, color3):    
@@ -36,6 +36,9 @@ c = Canvas("PDF/Certificate.pdf", pagesize=letter)
 drawRoundedRect(c, 11*cm,  12*cm, 50, 50, 20, 'd', "#da23ff", "#99ff99", "#9869ff")
 drawRoundedRect(c, 11*cm,  15*cm, 50, 50, 20, 'h', "#da23ff", "#99ff99", "#9869ff")
 drawRoundedRect(c, 11*cm,  18*cm, 50, 50, 20, 'v', "#da23ff", "#99ff99", "#9869ff")
+red50transparent = Color( 100, 0, 0, alpha=0.5)
+c.setFillColor(red50transparent)
+c.rect(300,75,100,100, fill=True, stroke=False)
 c.save()  
 
 key = input("Wait")
