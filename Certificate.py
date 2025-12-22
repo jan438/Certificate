@@ -35,7 +35,7 @@ p = c.beginPath()
 p.rect(10*cm, 10*cm, 10*cm, 10*cm)
 c.clipPath(p, stroke=0)
 c.linearGradient(10*cm, 10*cm, 20*cm, 20*cm , (red, green, yellow), (0, 0.3, 1))
-drawRect(c, 10*cm,  19*cm, 100, 100, 20, "#da23ff")
+drawRect(c, 11*cm,  12*cm, 50, 50, 20, "#da23ff")
 c.save()  
 
 key = input("Wait")
