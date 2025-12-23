@@ -16,6 +16,7 @@ def drawBGRect(c):
 def drawTitleRect(c):    
     c.saveState()
     p = c.beginPath()
+    p.setStrokeWidth = 2
     p.rect(100, height - 200, 400, 80)
     c.clipPath(p, stroke = 1)
     c.linearGradient(0, 0, 400, 0, (darkblue, gold), (0, 1))
