@@ -5,12 +5,12 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib.colors import Color, red, blue, yellow, green, white, gold, darkblue, HexColor
 from reportlab.lib.units import mm, cm
 
-def drawBGRect(c, x, y, w, h):    
+def drawBGRect(c):    
     c.saveState()
     p = c.beginPath()
     p.rect(0, 0, width, height)
     c.clipPath(p, stroke=0)
-    c.linearGradient(x, y, width, height,(Color(0.9, 0.95, 1), Color(0.7, 0.85, 1)), (0, 1))
+    c.linearGradient(0, 0, width, height,(Color(0.9, 0.95, 1), Color(0.7, 0.85, 1)), (0, 1))
     c.restoreState()
 
 if sys.platform[0] == 'l':
@@ -20,7 +20,7 @@ if sys.platform[0] == 'w':
 os.chdir(path)
 c = Canvas("PDF/Certificate.pdf", pagesize=letter)
 width, height = letter
-drawBGRect(c, 0, 0, width, height)
+drawBGRect(c)
 c.save()  
 
 key = input("Wait")
