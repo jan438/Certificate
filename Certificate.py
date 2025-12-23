@@ -2,7 +2,7 @@ import os
 import sys
 from reportlab.pdfgen.canvas import Canvas
 from reportlab.lib.pagesizes import letter
-from reportlab.lib.colors import Color, red, blue, yellow, green, white, HexColor
+from reportlab.lib.colors import Color, red, blue, yellow, green, white, gold, darkblue, HexColor
 from reportlab.lib.units import mm, cm
 
 def drawBGRect(c, x, y, w, h):    
