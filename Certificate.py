@@ -25,8 +25,8 @@ def drawSealEllipse(c):
     c.saveState()
     p = c.beginPath()
     p.ellipse(width - 200, 200, 100, 100)
-    c.clipPath(p, stroke = 0)
-    c.radialGradient(width - 200, 200, 50, (gold, darkblue), (0, 1))
+    c.clipPath(p, stroke = 1)
+    c.radialGradient(width - 175, 225, 50, (gold, darkblue), (0, 1))
     c.restoreState()
 
 if sys.platform[0] == 'l':
