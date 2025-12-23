@@ -20,6 +20,14 @@ def drawTitleRect(c):
     c.clipPath(p, stroke = 1)
     c.linearGradient(0, 0, 400, 0, (darkblue, gold), (0, 1))
     c.restoreState()
+    
+def drawSealEllipse(c):    
+    c.saveState()
+    p = c.beginPath()
+    p.ellipse(width - 200, 200, 100, 100)
+    c.clipPath(p, stroke = 0)
+    c.radialGradient(50, 50, 50, (gold, darkblue), (0, 1))
+    c.restoreState()
 
 if sys.platform[0] == 'l':
     path = '/home/jan/git/Certificate'
@@ -30,6 +38,7 @@ c = Canvas("PDF/Certificate.pdf", pagesize=letter)
 width, height = letter
 drawBGRect(c)
 drawTitleRect(c)
+drawSealEllipse(c)
 c.save()  
 
 key = input("Wait")
