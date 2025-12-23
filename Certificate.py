@@ -38,6 +38,9 @@ c = Canvas("PDF/Certificate.pdf", pagesize=letter)
 width, height = letter
 drawBGRect(c)
 drawTitleRect(c)
+c.setFont("Helvetica-Bold", 36)  
+c.setFillColor(white)  
+c.drawCentredString(width/2, height - 160, "CERTIFICATE OF ACHIEVEMENT")
 drawSealEllipse(c)
 c.save()  
 
