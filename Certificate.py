@@ -5,7 +5,7 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib.colors import Color, red, blue, yellow, green, white, HexColor
 from reportlab.lib.units import mm, cm
 
-def drawRect(c, x, y, w, h):    
+def drawBGRect(c, x, y, w, h):    
     c.saveState()
     p = c.beginPath()
     p.rect(0, 0, width, height)
@@ -20,7 +20,7 @@ if sys.platform[0] == 'w':
 os.chdir(path)
 c = Canvas("PDF/Certificate.pdf", pagesize=letter)
 width, height = letter
-drawRect(c, 0, 0, width, height)
+drawBGRect(c, 0, 0, width, height)
 c.save()  
 
 key = input("Wait")
