@@ -9,7 +9,7 @@ def drawBGRect(c):
     c.saveState()
     p = c.beginPath()
     p.rect(0, 0, width, height)
-    c.clipPath(p, stroke=0)
+    c.clipPath(p, stroke = 0)
     c.linearGradient(0, 0, width, height, (Color(0.9, 0.95, 1), Color(0.7, 0.85, 1)), (0, 1))
     c.restoreState()
     
@@ -17,7 +17,7 @@ def drawTitleRect(c):
     c.saveState()
     p = c.beginPath()
     p.rect(100, height - 200, 400, 80)
-    c.clipPath(p, stroke=0)
+    c.clipPath(p, stroke = 1)
     c.linearGradient(0, 0, 400, 0, (darkblue, gold), (0, 1))
     c.restoreState()
 
