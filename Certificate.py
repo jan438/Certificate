@@ -4,6 +4,19 @@ from reportlab.pdfgen.canvas import Canvas
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.colors import Color, red, blue, yellow, green, white, gold, darkblue, HexColor
 from reportlab.lib.units import mm, cm
+from reportlab.graphics import renderPDF
+from svglib.svglib import svg2rlg, load_svg_file, SvgRenderer
+
+def scaleSVG(svgfile, scaling_factor):
+    svg_root = load_svg_file(svgfile)
+    svgRenderer = SvgRenderer(svgfile)
+    drawing = svgRenderer.render(svg_root)
+    scaling_x = scaling_factor
+    scaling_y = scaling_factor
+    drawing.width = drawing.minWidth() * scaling_x
+    drawing.height = drawing.height * scaling_y
+    drawing.scale(scaling_x, scaling_y)
+    return drawing
 
 def drawBGRect(c):    
     c.saveState()
@@ -42,6 +55,8 @@ drawTitleRect(c)
 c.setFont("Helvetica-Bold", 36)  
 c.setFillColor(white)  
 c.drawCentredString(width/2, height - 160, "CERTIFICATE OF ACHIEVEMENT")
+drawing = scaleSVG("certificate-award.svg", 0.2)
+renderPDF.draw(drawing, c, 0, 0)
 drawSealEllipse(c)
 c.save()  
 
