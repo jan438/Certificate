@@ -56,7 +56,7 @@ c.setFont("Helvetica-Bold", 36)
 c.setFillColor(white)  
 c.drawCentredString(width/2, height - 160, "CERTIFICATE OF ACHIEVEMENT")
 drawing = scaleSVG("certificate-award.svg", 0.2)
-renderPDF.draw(drawing, c, width - 300, 100)
+renderPDF.draw(drawing, c, width - 275, 110)
 drawSealEllipse(c)
 c.save()  
 
