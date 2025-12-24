@@ -52,6 +52,8 @@ c = Canvas("PDF/Certificate.pdf", pagesize=letter)
 width, height = letter
 drawBGRect(c)
 drawTitleRect(c)
+c.setStrokeWidth = 10
+c.rect(100, height - 200, 400, 80, fill = 0, stroke = 1)
 c.setFont("Helvetica-Bold", 36)  
 c.setFillColor(white)  
 c.drawCentredString(width/2, height - 160, "CERTIFICATE OF ACHIEVEMENT")
