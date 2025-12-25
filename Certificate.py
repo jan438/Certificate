@@ -50,6 +50,7 @@ if sys.platform[0] == 'w':
 os.chdir(path)
 c = Canvas("PDF/Certificate.pdf", pagesize=letter)
 width, height = letter
+c.setTitle("Certificate")
 drawBGRect(c)
 drawTitleRect(c)
 c.setStrokeWidth = 10
