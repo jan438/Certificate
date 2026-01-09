@@ -11,7 +11,7 @@ if sys.platform[0] == 'w':
     path = "C:/Users/janbo/OneDrive/Documents/GitHub/Certificate"
 os.chdir(path)
 c = Canvas("PDF/Exercise2.pdf", pagesize=letter)
-
+c.rect(300,75,100,100, fill=True, stroke=False)
 c.save()  
 
 key = input("Wait")
