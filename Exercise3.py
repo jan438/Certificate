@@ -21,6 +21,7 @@ os.chdir(path)
 c = Canvas("PDF/Exercise3.pdf", pagesize=letter)
 drawRect(c, 100, 100, 50, 200)
 drawRect(c, 200, 100, 50, 200)
+drawRect(c, 300, 100, 50, 200)
 c.save()  
 
 key = input("Wait")
