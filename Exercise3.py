@@ -16,8 +16,8 @@ def drawRect(c, x, y, w, h, d):
         c.linearGradient(x, y, x, h, (col1, col2), (1, 0))
     c.restoreState()
 
-col1 = HexColor("#ffffff")
-col2 = HexColor("#000000")
+col1 = HexColor("#b8bfbc")
+col2 = HexColor("#a4aaa8")
 
 if sys.platform[0] == 'l':
     path = '/home/jan/git/Certificate'
