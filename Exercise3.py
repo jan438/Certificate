@@ -11,10 +11,13 @@ def drawRect(c, x, y, w, h, d):
     p.rect(x, y, w, h)
     c.clipPath(p, stroke = 1)
     if d == "b":
-        c.linearGradient(x, y, x, h, (HexColor("#ffffff"), HexColor("#000000")), (0, 1))
+        c.linearGradient(x, y, x, h, (col1, col2), (0, 1))
     if d == "t":
-        c.linearGradient(x, y, x, h, (HexColor("#ffffff"), HexColor("#000000")), (1, 0))
+        c.linearGradient(x, y, x, h, (col1, col2), (1, 0))
     c.restoreState()
+
+col1 = HexColor("#ffffff")
+col2 = HexColor("#000000")
 
 if sys.platform[0] == 'l':
     path = '/home/jan/git/Certificate'
