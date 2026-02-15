@@ -32,7 +32,7 @@ def drawRect(c, x, y, w, h):
     p = c.beginPath()
     p.rect(x, y, w, h)
     c.clipPath(p, stroke = 0)
-    c.linearGradient(0, 0, 0, h, (darkblue, gold), (0, 1))
+    c.linearGradient(x, y, 0, h, (darkblue, gold), (0, 1))
     c.restoreState()
 
 if sys.platform[0] == 'l':
