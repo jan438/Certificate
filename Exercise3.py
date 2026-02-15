@@ -27,12 +27,12 @@ def drawRoundedRect(c, x, y, w, h, a, d, color1, color2, color3):
          c.linearGradient(x, y, x, y + h + a, (color1, color2, color3), (0, 0.5, 1))
     c.restoreState()
     
-def drawRect(c):    
+def drawRect(c, x, y, w, h):    
     c.saveState()
     p = c.beginPath()
-    p.rect(100, 150, 400, 80)
+    p.rect(x, y, w, h)
     c.clipPath(p, stroke = 0)
-    c.linearGradient(0, 0, 400, 0, (darkblue, gold), (0, 1))
+    c.linearGradient(0, 0, 0, h, (darkblue, gold), (0, 1))
     c.restoreState()
 
 if sys.platform[0] == 'l':
@@ -41,9 +41,7 @@ if sys.platform[0] == 'w':
     path = "C:/Users/janbo/OneDrive/Documents/GitHub/Certificate"
 os.chdir(path)
 c = Canvas("PDF/Exercise3.pdf", pagesize=letter)
-drawRect(c)
-drawRoundedRect(c, 11*cm,  15*cm, 50, 50, 20, 'h', "#da23ff", "#99ff99", "#9869ff")
-drawRoundedRect(c, 11*cm,  18*cm, 50, 50, 20, 'v', "#da23ff", "#99ff99", "#9869ff")
+drawRect(c, 100, 100, 50, 200)
 red50transparent = Color( 100, 0, 0, alpha=0.5)
 c.setFillColor(red50transparent)
 c.rect(300,75,100,100, fill=True, stroke=False)
