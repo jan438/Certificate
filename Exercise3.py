@@ -11,7 +11,7 @@ def drawRect(c, x, y, w, h, d):
     p.rect(x, y, w, h)
     c.clipPath(p, stroke = 1)
     if d == "b":
-        c.linearGradient(x, y, x, h, (darkblue, gold), (0, 1))
+        c.linearGradient(x, y, x, h, (HexColor("#ffffff"), HexColor("#000000")), (0, 1))
     if d == "t":
         c.linearGradient(x, y, x, h, (darkblue, gold), (1, 0))
     c.restoreState()
