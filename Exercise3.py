@@ -13,7 +13,7 @@ def drawRect(c, x, y, w, h, d):
     if d == "b":
         c.linearGradient(x, y, x, h, (HexColor("#ffffff"), HexColor("#000000")), (0, 1))
     if d == "t":
-        c.linearGradient(x, y, x, h, (darkblue, gold), (1, 0))
+        c.linearGradient(x, y, x, h, (HexColor("#ffffff"), HexColor("#000000")), (1, 0))
     c.restoreState()
 
 if sys.platform[0] == 'l':
