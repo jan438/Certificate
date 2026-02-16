@@ -11,9 +11,9 @@ def drawRect(c, x, y, w, h, d):
     p.rect(x, y, w, h)
     c.clipPath(p, stroke = 1)
     if d == "b":
-        c.linearGradient(x, y, x, h, (col1, col2), (0, 1))
+        c.linearGradient(x, y, x, h, (col1, col2), (0, 1), extend = False)
     if d == "t":
-        c.linearGradient(x, y, x, h, (col1, col2), (1, 0))
+        c.linearGradient(x, y, x, h, (col1, col2), (1, 0), extend = False)
     c.restoreState()
 
 col1 = HexColor("#b8bfbc")
